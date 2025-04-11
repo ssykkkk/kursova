@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Меню - Sapori di Roma</title>
+    <link rel="icon" href="/assets/images/icon.ico" type="image/x-icon" />
+    <style>
+      .menu {
+        padding: 120px 0 80px;
+      }
+
+      .section-title {
+        font-size: 36px;
+        margin-bottom: 50px;
+        color: #333;
+        text-align: center;
+        position: relative;
+      }
+
+      .section-title:after {
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 3px;
+        background-color: #d4a373;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .menu-tabs {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 40px;
+        flex-wrap: wrap;
+      }
+
+      .tab-btn {
+        padding: 10px 25px;
+        margin: 0 10px;
+        background: none;
+        border: none;
+        border-bottom: 2px solid transparent;
+        font-size: 18px;
+        cursor: pointer;
+        transition: all 0.3s;
+        color: #666;
+      }
+
+      .tab-btn.active {
+        color: #d4a373;
+        border-bottom: 2px solid #d4a373;
+        font-weight: bold;
+      }
+
+      .tab-btn:hover {
+        color: #d4a373;
+      }
+
+      .menu-category {
+        display: none;
+        animation: fadeIn 0.5s ease-in-out;
+      }
+
+      .menu-category.active {
+        display: block;
+      }
+
+      .menu-items {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+        gap: 30px;
+      }
+
+      .menu-item {
+        background-color: white;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        display: flex;
+        transition: transform 0.3s;
+      }
+
+      .menu-item:hover {
+        transform: translateY(-5px);
+      }
+
+      .item-img {
+        width: 120px;
+        height: 120px;
+        border-radius: 8px;
+        overflow: hidden;
+        flex-shrink: 0;
+        margin-right: 20px;
+      }
+
+      .item-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .item-content {
+        flex-grow: 1;
+      }
+
+      .item-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        align-items: center;
+      }
+
+      .item-title {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .item-price {
+        color: #d4a373;
+        font-weight: bold;
+        font-size: 20px;
+      }
+
+      .item-desc {
+        color: #666;
+        margin-bottom: 10px;
+      }
+
+      .item-badge {
+        display: inline-block;
+        padding: 3px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: bold;
+        margin-right: 5px;
+      }
+
+      .badge-new {
+        background-color: #ffeb3b;
+        color: #333;
+      }
+
+      .badge-veg {
+        background-color: #4caf50;
+        color: white;
+      }
+
+      .badge-spicy {
+        background-color: #f44336;
+        color: white;
+      }
+      /* Анімації */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="/styles/main.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <div class="logo">Sapori di Roma</div>
+          <ul class="nav-links">
+            <li><a href="/index.html">Головна</a></li>
+            <li><a href="#" class="active">Меню</a></li>
+            <li><a href="/pages/gallery.html">Галерея</a></li>
+            <li><a href="/pages/about.html">Про нас</a></li>
+            <li><a href="/pages/contacts.html">Контакти</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section class="menu">
+      <div class="container">
+        <h2 class="section-title">Наше меню</h2>
+
+        <div class="menu-tabs">
+          <button class="tab-btn active" data-category="starters">
+            Закуски
+          </button>
+          <button class="tab-btn" data-category="salads">Салати</button>
+          <button class="tab-btn" data-category="pasta">Паста</button>
+          <button class="tab-btn" data-category="pizza">Піца</button>
+          <button class="tab-btn" data-category="desserts">Десерти</button>
+          <button class="tab-btn" data-category="drinks">Напої</button>
+        </div>
+
+        <!-- Закуски -->
+        <div class="menu-category active" id="starters">
+          <div class="menu-items">
+            <div class="menu-item">
+              <div class="item-img">
+                <img src="/assets/images/brusk.jpeg" alt="Брускета" />
+              </div>
+              <div class="item-content">
+                <div class="item-header">
+                  <h3 class="item-title">Брускета</h3>
+                  <span class="item-price">125 грн</span>
+                </div>
+                <p class="item-desc">
+                  Хрусткий хліб з томатами, базиліком, часником та оливковою
+                  олією
+                </p>
+                <div>
+                  <span class="item-badge badge-new">Новинка</span>
+                  <span class="item-badge badge-veg">Veg</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-img">
+                <img src="/assets/images/kapr.webp" alt="Капрезе" />
+              </div>
+              <div class="item-content">
+                <div class="item-header">
+                  <h3 class="item-title">Капрезе</h3>
+                  <span class="item-price">185 грн</span>
+                </div>
+                <p class="item-desc">
+                  Поєднання помідорів, моцарели, базиліку та оливкової олії, що
+                  відображає кольори італійського прапора
+                </p>
+                <div>
+                  <span class="item-badge badge-veg">Veg</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-img">
+                <img src="/assets/images/potat.jpeg" alt="Крокетти ді патате" />
+              </div>
+              <div class="item-content">
+                <div class="item-header">
+                  <h3 class="item-title">Крокетти ді патате</h3>
+                  <span class="item-price">130 грн</span>
+                </div>
+                <p class="item-desc">
+                  Смажені картопляні котлети, зазвичай з сиром та зеленню
+                </p>
+                <div>
+                  <span class="item-badge badge-veg">Veg</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-img">
+                <img src="/assets/images/fokk.webp" alt="Фокачча" />
+              </div>
+              <div class="item-content">
+                <div class="item-header">
+                  <h3 class="item-title">Фокачча</h3>
+                  <span class="item-price">170 грн</span>
+                </div>
+                <p class="item-desc">
+                  М'який плоский хліб, з оливковою олією, сіллю та ароматними
+                  травами
+                </p>
+                <div>
+                  <span class="item-badge badge-veg">Veg</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Салати -->
+        <div class="menu-category" id="salads">
+          <div class="menu-items">
+            <div class="menu-item">
+              <div class="item-img">
+                <img src="/assets/images/cesar.jpg" alt="Цезар" />
+              </div>
+              <div class="item-content">
+                <div class="item-header">
+                  <h3 class="item-title">Цезар</h3>
+                  <span class="item-price">195 грн</span>
+                </div>
+                <p class="item-desc">
+                  Салат з роменом, курячими грудками, сирами, крутонями та
+                  соусом з анчоусів і пармезану
+                </p>
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-img">
+                <img src="/assets/images/pann.jpg" alt="Панцанелла" />
+              </div>
+              <div class="item-content">
+                <div class="item-header">
+                  <h3 class="item-title">Панцанелла</h3>
+                  <span class="item-price">155 грн</span>
+                </div>
+                <p class="item-desc">
+                  Салат з черствого хліба, помідорів, огірків, червоної цибулі
+                  та оливок, заправлений оливковою олією та оцтом
+                </p>
+
+                <div>
+                  <span class="item-badge badge-veg">Veg</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-img">
+                <img src="/assets/images/nisuaz.webp" alt="Нісуаз" />
+              </div>
+              <div class="item-content">
+                <div class="item-header">
+                  <h3 class="item-title">Нісуаз</h3>
+                  <span class="item-price">175 грн</span>
+                </div>
+                <p class="item-desc">
+                  Салат з тунцем, вареними яйцями, картоплею, оливками, зеленню
+                  та цибулею
+                </p>
+                <div></div>
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-img">
+                <img src="/assets/images/parm.jpg" alt="Руккола з пармезаном" />
+              </div>
+              <div class="item-content">
+                <div class="item-header">
+                  <h3 class="item-title">Руккола з пармезаном</h3>
+                  <span class="item-price">135 грн</span>
+                </div>
+                <p class="item-desc">
+                  Салат з молодою рукколою, скибками пармезану та заправлений
+                  оливковою олією і лимонним соком
+                </p>
+                <div>
+                  <span class="item-badge badge-veg">Veg</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Паста -->
+        <div class="menu-category" id="pasta">
+          <div class="menu-items">
+            <div class="menu-item">
+              <div class="item-img">
+                <img src="/assets/images/bolo.jpg" alt="Болоньєзе" />
+              </div>
+              <div class="item-content">
+                <div class="item-header">
+                  <h3 class="item-title">Болоньєзе</h3>
+                  <span class="item-price">185 грн</span>
+                </div>
+                <p class="item-desc">
+                  Паста з м'ясним соусом, приготовленим на основі яловичини,
+                  помідорів та спецій
+                </p>
+                <div>
+                  <span class="item-badge badge-new">Новинка</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-img">
+                <img src="/assets/images/fett.jpg" alt="Фетуччіне альфредо" />
+              </div>
+              <div class="item-content">
+                <div class="item-header">
+                  <h3 class="item-title">Фетуччіне альфредо</h3>
+                  <span class="item-price">150 грн</span>
+                </div>
+                <p class="item-desc">
+                  Паста з вершковим соусом, пармезаном і маслом, часто подається
+                  з куркою або грибами
+                </p>
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-img">
+                <img src="/assets/images/pane.jpg" alt="Пенне аранчіні" />
+              </div>
+              <div class="item-content">
+                <div class="item-header">
+                  <h3 class="item-title">Пенне аранчіні</h3>
+                  <span class="item-price">145 грн</span>
+                </div>
+                <p class="item-desc">
+                  Паста у формі трубочок з соусом на основі томатів, оливок,
+                  каперсів і анчоусів
+                </p>
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-img">
+                <img src="/assets/images/laza.jpg" alt="Лазанья" />
+              </div>
+              <div class="item-content">
+                <div class="item-header">
+                  <h3 class="item-title">Лазанья</h3>
+                  <span class="item-price">195 грн</span>
+                </div>
+                <p class="item-desc">
+                  Багатошарова паста з товстими листами, запечена з м'ясним
+                  соусом, бешамель і сиром
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Піца -->
+        <div class="menu-category" id="pizza">
+          <div class="menu-items">
+            <div class="menu-item">
+              <div class="item-img">
+                <img src="/assets/images/marg.webp" alt="Маргарита" />
+              </div>
+              <div class="item-content">
+                <div class="item-header">
+                  <h3 class="item-title">Маргарита</h3>
+                  <span class="item-price">170 грн</span>
+                </div>
+                <p class="item-desc">
+                  Класична піца з помідорами, моцарелою, базиліком і оливковою
+                  олією, що символізує італійський прапор
+                </p>
+                <div>
+                  <span class="item-badge badge-new">Новинка</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-img">
+                <img src="/assets/images/4ch.jpg" alt="Чотири сири" />
+              </div>
+              <div class="item-content">
+                <div class="item-header">
+                  <h3 class="item-title">Чотири сири</h3>
+                  <span class="item-price">265 грн</span>
+                </div>
+                <p class="item-desc">
+                  Піца з різними сирами, зазвичай моцарелою, горгонзолою,
+                  пармезаном і рікотою
+                </p>
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-img">
+                <img src="/assets/images/pepe.jpg" alt="Пепероні" />
+              </div>
+              <div class="item-content">
+                <div class="item-header">
+                  <h3 class="item-title">Пепероні</h3>
+                  <span class="item-price">230 грн</span>
+                </div>
+                <p class="item-desc">
+                  Піца з томатним соусом, моцарелою та пікантними скибками
+                  пепероні
+                </p>
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-img">
+                <img src="/assets/images/kaprich.jpg" alt="Капрічоза" />
+              </div>
+              <div class="item-content">
+                <div class="item-header">
+                  <h3 class="item-title">Капрічоза</h3>
+                  <span class="item-price">195 грн</span>
+                </div>
+                <p class="item-desc">
+                  Піца з томатним соусом, моцарелою, шинкою, артишоками,
+                  оливками та грибами
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Десерти -->
+        <div class="menu-category" id="desserts">
+          <div class="menu-items">
+            <div class="menu-item">
+              <div class="item-img">
+                <img src="/assets/images/tiramisutort.webp" alt="Тірамісу" />
+              </div>
+              <div class="item-content">
+                <div class="item-header">
+                  <h3 class="item-title">Тірамісу</h3>
+                  <span class="item-price">190 грн</span>
+                </div>
+                <p class="item-desc">
+                  Ніжний десерт з шарами бісквіту, просоченого кавою та
+                  маскарпоне, посипаний какао
+                </p>
+                <div>
+                  <span class="item-badge badge-new">Новинка</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-img">
+                <img src="/assets/images/kannoli.jpg" alt="Каннолі" />
+              </div>
+              <div class="item-content">
+                <div class="item-header">
+                  <h3 class="item-title">Каннолі</h3>
+                  <span class="item-price">125 грн</span>
+                </div>
+                <p class="item-desc">
+                  Хрусткі трубочки з смачним начинкою з рікоти, часто з
+                  додаванням шоколаду чи фруктів
+                </p>
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-img">
+                <img src="/assets/images/panak.jpg" alt="Панна котта" />
+              </div>
+              <div class="item-content">
+                <div class="item-header">
+                  <h3 class="item-title">Панна котта</h3>
+                  <span class="item-price">110 грн</span>
+                </div>
+                <p class="item-desc">
+                  Ніжний кремовий десерт, приготований з вершків, цукру та
+                  желатину, часто з фруктовим соусом
+                </p>
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-img">
+                <img src="/assets/images/zaba.jpg" alt="Забайоне" />
+              </div>
+              <div class="item-content">
+                <div class="item-header">
+                  <h3 class="item-title">Забайоне</h3>
+                  <span class="item-price">120 грн</span>
+                </div>
+                <p class="item-desc">
+                  Легкий десерт на основі яєць, цукру та вина (зазвичай,
+                  марсала), подається теплим або охолодженим
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Напої -->
+        <div class="menu-category" id="drinks">
+          <div class="menu-items">
+            <div class="menu-item">
+              <div class="item-img">
+                <img src="/assets/images/espres.jpg" alt="Еспресо" />
+              </div>
+              <div class="item-content">
+                <div class="item-header">
+                  <h3 class="item-title">Еспресо</h3>
+                  <span class="item-price">50 грн</span>
+                </div>
+                <p class="item-desc">
+                  Міцна і концентрована кава, що готується шляхом пропускання
+                  гарячої води через мелену каву під високим тиском
+                </p>
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-img">
+                <img src="/assets/images/kapuchyno.jpg" alt="Капучино" />
+              </div>
+              <div class="item-content">
+                <div class="item-header">
+                  <h3 class="item-title">Капучино</h3>
+                  <span class="item-price">80 грн</span>
+                </div>
+                <p class="item-desc">
+                  Напій на основі еспресо з рівними частинами гарячого молока та
+                  молочної пінки
+                </p>
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-img">
+                <img src="/assets/images/lim.jpg" alt="Лімончелло" />
+              </div>
+              <div class="item-content">
+                <div class="item-header">
+                  <h3 class="item-title">Лімончелло</h3>
+                  <span class="item-price">130 грн</span>
+                </div>
+                <p class="item-desc">
+                  Італійський лікер з лимонів, що має яскраво виражений
+                  цитрусовий смак і аромат
+                </p>
+                <div>
+                  <span
+                    class="item-badge badge-new"
+                    style="background-color: red; color: white"
+                    >Алкоголь</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-item">
+              <div class="item-img">
+                <img src="/assets/images/nea.jpg" alt="Неаполітано" />
+              </div>
+              <div class="item-content">
+                <div class="item-header">
+                  <h3 class="item-title">Неаполітано</h3>
+                  <span class="item-price">120 грн</span>
+                </div>
+                <p class="item-desc">
+                  Традиційний італійський безалкогольний напій на основі
+                  фруктів, часто подається з льодом
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3 class="logof">Sapori di Roma</h3>
+            <p>
+              Наше кафе пропонує автентичну італійську кухню, приготовану з
+              любов'ю та найсвіжіших інгредієнтів.
+            </p>
+          </div>
+
+          <div class="footer-column">
+            <h3>Години роботи</h3>
+            <ul>
+              <li>Понеділок - П'ятниця: 9:00 - 23:00</li>
+              <li>Субота - Неділя: 10:00 - 24:00</li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>Контакти</h3>
+            <ul>
+              <li>м. Київ, вул. Хрещатик, 25</li>
+              <li>+380 63 345 6789</li>
+              <li>saporidiroma@gmail.com</li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>Соціальні мережі</h3>
+            <div class="social-links">
+              <a href="https://www.facebook.com/">Facebook</a>
+              <a href="https://www.instagram.com/">Instagram</a>
+              <a href="https://web.telegram.org/k/">Telegram</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="copyright">
+          <p>&copy; 2025 Sapori di Roma. Всі права захищені.</p>
+          <p>Kozak Stanislav</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <!-- JavaScript для табів меню -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const menuCategories = document.querySelectorAll('.menu-category');
+        
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Видаляємо активний клас у всіх кнопок
+                tabBtns.forEach(btn => btn.classList.remove('active'));
+                // Додаємо активний клас до поточної кнопки
+                this.classList.add('active');
+                
+                // Отримуємо категорію з атрибута data-category
+                const category = this.getAttribute('data-category');
+                
+                // Ховаємо всі категорії меню
+                menuCategories.forEach(cat => cat.classList.remove('active'));
+                
+                // Показуємо тільки обрану категорію
+                document.getElementById(category).classList.add('active');
+            });
+        });
+    });
+</script>
+</html>

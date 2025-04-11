@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Контакти - Sapori di Roma</title>
+    <link rel="icon" href="/assets/images/icon.ico" type="image/x-icon" />
+    <style>
+      .contacts {
+        padding: 120px 0 80px;
+      }
+
+      .section-title {
+        font-size: 36px;
+        margin-bottom: 50px;
+        color: #333;
+        text-align: center;
+        position: relative;
+      }
+
+      .section-title:after {
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 3px;
+        background-color: #d4a373;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .contact-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+      }
+
+      .contact-info {
+        background-color: white;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .contact-info h3 {
+        font-size: 24px;
+        margin-bottom: 30px;
+        color: #d4a373;
+      }
+
+      .contact-item {
+        display: flex;
+        margin-bottom: 25px;
+      }
+
+      .contact-icon {
+        font-size: 24px;
+        color: #d4a373;
+        margin-right: 20px;
+        width: 40px;
+        text-align: center;
+      }
+
+      .contact-text h4 {
+        font-size: 18px;
+        margin-bottom: 5px;
+      }
+
+      .contact-text p,
+      .contact-text a {
+        color: #666;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .contact-text a:hover {
+        color: #d4a373;
+      }
+
+      .opening-hours {
+        margin-top: 40px;
+      }
+
+      .hours-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .hours-table tr {
+        border-bottom: 1px solid #eee;
+      }
+
+      .hours-table tr:last-child {
+        border-bottom: none;
+      }
+
+      .hours-table td {
+        padding: 10px 0;
+      }
+
+      .hours-table td:last-child {
+        text-align: right;
+        font-weight: 500;
+      }
+
+      .contact-form {
+        background-color: white;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .contact-form h3 {
+        font-size: 24px;
+        margin-bottom: 30px;
+        color: #d4a373;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: border-color 0.3s;
+      }
+
+      .form-control:focus {
+        outline: none;
+        border-color: #d4a373;
+      }
+
+      textarea.form-control {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      .submit-btn {
+        background-color: #d4a373;
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .submit-btn:hover {
+        background-color: #c08a5a;
+      }
+
+      .map-container {
+        margin-top: 60px;
+        text-align: center;
+      }
+      .map-container h3 {
+        font-size: 24px;
+        color: #333;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+      
+      /* Стилі для відгуків */
+      .reviews-section {
+        padding: 0 0 60px 0;
+      }
+      
+      .reviews-container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      
+      .review-form {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        margin-bottom: 40px;
+      }
+      
+      .review-form h3 {
+        color: #d4a373;
+        margin-bottom: 20px;
+      }
+      
+      .review-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      
+      .review-item {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+      }
+      
+      .review-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 10px;
+      }
+      
+      .review-author {
+        font-weight: bold;
+        color: #333;
+      }
+      
+      .review-date {
+        color: #888;
+        font-size: 0.9em;
+      }
+      
+      .review-text {
+        color: #555;
+        line-height: 1.5;
+      }
+      
+      .rating {
+        color: #d4a373;
+        font-weight: bold;
+        margin-top: 5px;
+      }
+    </style>
+    <link rel="stylesheet" href="/styles/main.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <div class="logo">Sapori di Roma</div>
+          <ul class="nav-links">
+            <li><a href="/index.html">Головна</a></li>
+            <li><a href="menu.html">Меню</a></li>
+            <li><a href="gallery.html">Галерея</a></li>
+            <li><a href="about.html">Про нас</a></li>
+            <li><a href="#" class="active">Контакти</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <section class="contacts">
+      <div class="container">
+        <h2 class="section-title">Зв'яжіться з нами</h2>
+
+        <div class="contact-content">
+          <div class="contact-info">
+            <h3>Контактна інформація</h3>
+
+            <div class="contact-item">
+              <div class="contact-icon">📍</div>
+              <div class="contact-text">
+                <h4>Адреса</h4>
+                <p>м. Київ, вул. Хрещатик, 25</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">📞</div>
+              <div class="contact-text">
+                <h4>Телефон</h4>
+                <p><a href="tel:+380633456789">+38 (063) 345-67-89</a></p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">✉️</div>
+              <div class="contact-text">
+                <h4>Email</h4>
+                <p>
+                  <a href="mailto:saporidiroma@gmail.com"
+                    >saporidiroma@gmail.com</a
+                  >
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">💬</div>
+              <div class="contact-text">
+                <h4>Соціальні мережі</h4>
+                <p>
+                  <a href="https://www.facebook.com/" style="margin-right: 15px"
+                    >Facebook</a
+                  >
+                  <a
+                    href="https://www.instagram.com/"
+                    style="margin-right: 15px"
+                    >Instagram</a
+                  >
+                  <a href="https://web.telegram.org/k/">Telegram</a>
+                </p>
+              </div>
+            </div>
+
+            <div class="opening-hours">
+              <h4>Години роботи:</h4>
+              <table class="hours-table">
+                <tr>
+                  <td>Понеділок - П'ятниця</td>
+                  <td>9:00 - 23:00</td>
+                </tr>
+                <tr>
+                  <td>Субота - Неділя</td>
+                  <td>10:00 - 24:00</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+
+          <div class="contact-form">
+            <h3>Напишіть нам</h3>
+            <form action="#" method="get" id="feedbackForm">
+              <div class="form-group">
+                <label for="name">Ваше ім'я</label>
+                <input type="text" id="name" name="name" class="form-control" autofocus required />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" class="form-control" required />
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Телефон (необов'язково)</label>
+                <input type="tel" id="phone" name="phone" class="form-control" />
+              </div>
+
+              <div class="form-group">
+                <label for="message">Повідомлення</label>
+                <textarea id="message" name="message" class="form-control" wrap="soft" required></textarea>
+              </div>
+
+              <button type="submit" class="submit-btn">Надіслати</button>
+            </form>
+          </div>
+        </div>
+        <div class="map-container">
+          <h2 class="section-title">Ми на карті</h2>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d603.7675384889354!2d30.520028256141785!3d50.44508411655432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4ce56657a3ab7%3A0x4def1e77f63fc61d!2sTSUM!5e1!3m2!1suk!2sua!4v1743616226381!5m2!1suk!2sua"
+            width="1150"
+            height="500"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Секція для відгуків -->
+    <section class="reviews-section">
+      <div class="container">
+        <h2 class="section-title">Відгуки</h2>
+        
+        <div class="reviews-container">
+          <!-- Форма для додавання відгуку -->
+          <div class="review-form">
+            <h3>Залишити відгук</h3>
+            <form id="reviewForm">
+              <div class="form-group">
+                <label for="reviewName">Ваше ім'я</label>
+                <input type="text" id="reviewName" class="form-control" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="reviewRating">Оцінка (від 1 до 5)</label>
+                <select id="reviewRating" class="form-control" required>
+                  <option value="">Оберіть оцінку</option>
+                  <option value="5">5 - Відмінно</option>
+                  <option value="4">4 - Дуже добре</option>
+                  <option value="3">3 - Добре</option>
+                  <option value="2">2 - Задовільно</option>
+                  <option value="1">1 - Погано</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="reviewText">Ваш відгук</label>
+                <textarea id="reviewText" class="form-control" rows="5" required></textarea>
+              </div>
+              
+              <button type="submit" class="submit-btn" onclick="return confirm('Ви впевнені?') ? true : false">Відправити відгук</button>
+            </form>
+          </div>
+          
+          <!-- Список відгуків -->
+          <div class="review-list" id="reviewList">
+            <!-- Відгуки будуть додаватися сюди через JavaScript -->
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3 class="logof">Sapori di Roma</h3>
+            <p>
+              Наше кафе пропонує автентичну італійську кухню, приготовану з
+              любов'ю та найсвіжіших інгредієнтів.
+            </p>
+          </div>
+
+          <div class="footer-column">
+            <h3>Години роботи</h3>
+            <ul>
+              <li>Понеділок - П'ятниця: 9:00 - 23:00</li>
+              <li>Субота - Неділя: 10:00 - 24:00</li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>Контакти</h3>
+            <ul>
+              <li>м. Київ, вул. Хрещатик, 25</li>
+              <li>+380 63 345 6789</li>
+              <li>saporidiroma@gmail.com</li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>Соціальні мережі</h3>
+            <div class="social-links">
+              <a href="https://www.facebook.com/">Facebook</a>
+              <a href="https://www.instagram.com/">Instagram</a>
+              <a href="https://web.telegram.org/k/">Telegram</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="copyright">
+          <p>&copy; 2025 Sapori di Roma. Всі права захищені.</p>
+          <p>Kozak Stanislav</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript для форми -->
+    <script>
+      // Обробка форми зворотнього зв'язку
+      const form = document.getElementById("feedbackForm");
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        alert(
+          "Дякуємо за ваше повідомлення! Ми зв'яжемося з вами найближчим часом."
+        );
+        form.reset();
+      });
+      
+      // Обробка форми відгуків
+      const reviewForm = document.getElementById("reviewForm");
+      const reviewList = document.getElementById("reviewList");
+      
+      // Функція для форматування дати
+      function formatDate(date) {
+        const day = date.getDate().toString().padStart(2, '0');
+        const month = (date.getMonth() + 1).toString().padStart(2, '0');
+        const year = date.getFullYear();
+        const hours = date.getHours().toString().padStart(2, '0');
+        const minutes = date.getMinutes().toString().padStart(2, '0');
+        
+        return `${day}.${month}.${year} о ${hours}:${minutes}`;
+      }
+      
+      // Додавання відгуку
+      reviewForm.addEventListener("submit", function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById("reviewName").value;
+        const rating = document.getElementById("reviewRating").value;
+        const text = document.getElementById("reviewText").value;
+        const date = new Date();
+        
+        // Створення елементу відгуку
+        const reviewItem = document.createElement("div");
+        reviewItem.className = "review-item";
+        reviewItem.innerHTML = `
+          <div class="review-header">
+            <span class="review-author">${name}</span>
+            <span class="review-date">${formatDate(date)}</span>
+          </div>
+          <div class="rating">Оцінка: ${rating}/5</div>
+          <div class="review-text">${text}</div>
+        `;
+        
+        // Додавання відгуку на початок списку
+        reviewList.insertBefore(reviewItem, reviewList.firstChild);
+        
+        // Очищення форми
+        reviewForm.reset();
+        
+        // Повідомлення про успішне додавання
+        const thank = "Дякуємо за ваш відгук!";
+        alert(thank);
+      });
+      
+      // Приклад відгуків (можна видалити або замінити на завантаження з сервера)
+      const sampleReviews = [
+        {
+          name: "Олександр",
+          rating: 5,
+          text: "Чудове місце! Справжня італійська кухня, приємна атмосфера та відмінне обслуговування. Обов'язково повернусь!",
+          date: new Date(2025, 2, 15, 19, 30)
+        },
+        {
+          name: "Анна",
+          rating: 4,
+          text: "Смачна їжа, гарне обслуговування. Десерти просто божественні! Менше сподобалось те, що було досить шумно.",
+          date: new Date(2025, 1, 28, 14, 15)
+        }
+      ];
+      
+      // Додавання прикладних відгуків при завантаженні сторінки
+      window.addEventListener("DOMContentLoaded", function() {
+        sampleReviews.forEach(review => {
+          const reviewItem = document.createElement("div");
+          reviewItem.className = "review-item";
+          reviewItem.innerHTML = `
+            <div class="review-header">
+              <span class="review-author">${review.name}</span>
+              <span class="review-date">${formatDate(review.date)}</span>
+            </div>
+            <div class="rating">Оцінка: ${review.rating}/5</div>
+            <div class="review-text">${review.text}</div>
+          `;
+          reviewList.appendChild(reviewItem);
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Галерея - Sapori di Roma</title>
+    <link rel="icon" href="/assets/images/icon.ico" type="image/x-icon" />
+    <style>
+      .gallery {
+        padding: 120px 0 80px;
+        position: relative;
+      }
+
+      .section-title {
+        font-size: 36px;
+        margin-bottom: 50px;
+        color: #333;
+        text-align: center;
+        position: relative;
+      }
+
+      .section-title:after {
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 3px;
+        background-color: #d4a373;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .slider-container {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        padding-bottom: 20px;
+      }
+
+      .slider-track {
+        display: flex;
+        transition: transform 0.5s ease;
+      }
+
+      .slide {
+        min-width: 100%;
+        position: relative;
+      }
+
+      .slide img,
+      .slide video {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+      }
+
+      .slide-caption {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent);
+        color: white;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .caption-title {
+        font-size: 24px;
+        margin-bottom: 5px;
+      }
+
+      .slider-nav {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+
+      .slider-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #d4a373;
+        opacity: 0.5;
+        margin: 0 5px;
+        cursor: pointer;
+        transition: opacity 0.3s;
+      }
+
+      .slider-dot.active {
+        opacity: 1;
+      }
+
+      .slider-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 50px;
+        height: 50px;
+        background: rgba(212, 163, 115, 0.7);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        font-size: 20px;
+        cursor: pointer;
+        z-index: 10;
+        transition: 0.3s;
+      }
+
+      .slider-btn:hover {
+        background: rgba(212, 163, 115, 1);
+      }
+
+      .prev-btn {
+        left: 20px;
+      }
+
+      .next-btn {
+        right: 20px;
+      }
+
+      @media (max-width: 768px) {
+        .slide img,
+        .slide video {
+          height: 300px;
+        }
+        
+        .slider-btn {
+          width: 40px;
+          height: 40px;
+          font-size: 16px;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="/styles/main.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <div class="logo">Sapori di Roma</div>
+          <ul class="nav-links">
+            <li><a href="/index.html">Головна</a></li>
+            <li><a href="menu.html">Меню</a></li>
+            <li><a href="gallery.html" class="active">Галерея</a></li>
+            <li><a href="about.html">Про нас</a></li>
+            <li><a href="contacts.html">Контакти</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <section class="gallery">
+      <div class="container">
+        <h2 class="section-title">Наша галерея</h2>
+        
+        <div class="slider-container">
+          <button class="slider-btn prev-btn">&#10094;</button>
+          <button class="slider-btn next-btn">&#10095;</button>
+          
+          <div class="slider-track">
+            <!-- Слайд 1 -->
+            <div class="slide">
+              <img src="/assets/images/bg.avif" alt="Інтер'єр кафе">
+              <div class="slide-caption">
+                <h3 class="caption-title">Головний зал</h3>
+                <p>Затишна атмосфера нашого кафе</p>
+              </div>
+            </div>
+            
+            <!-- Слайд 2 -->
+            <div class="slide">
+              <img src="/assets/images/about1.avif" alt="Барна стійка">
+              <div class="slide-caption">
+                <h3 class="caption-title">Барна стійка</h3>
+                <p>Широкий вибір напоїв</p>
+              </div>
+            </div>
+            
+            <!-- Слайд 3 -->
+            <div class="slide">
+              <img src="/assets/images/bolo.jpg" alt="Паста Болоньєзе">
+              <div class="slide-caption">
+                <h3 class="caption-title">Паста Болоньєзе</h3>
+                <p>Класика італійської кухні</p>
+              </div>
+            </div>
+            
+            <!-- Слайд 4 -->
+            <div class="slide">
+              <img src="/assets/images/marg.webp" alt="Піца Маргарита">
+              <div class="slide-caption">
+                <h3 class="caption-title">Піца Маргарита</h3>
+                <p>Тонка піца з томатами та моцарелою</p>
+              </div>
+            </div>
+            
+            <!-- Слайд 5 -->
+            <div class="slide">
+              <img src="/assets/images/cesar.jpg" alt="Салат Цезар">
+              <div class="slide-caption">
+                <h3 class="caption-title">Салат Цезар</h3>
+                <p>Класика з хрумкими крутонами</p>
+              </div>
+            </div>
+            
+            <!-- Слайд 6 -->
+            <div class="slide">
+              <img src="/assets/images/tiramisutort.webp" alt="Тірамісу">
+              <div class="slide-caption">
+                <h3 class="caption-title">Тірамісу</h3>
+                <p>Десерт із кавовою ноткою</p>
+              </div>
+            </div>
+            
+            <!-- Слайд 7 (відео) -->
+            <div class="slide">
+              <video controls poster="/assets/images/vid1.jpg">
+                <source src="/assets/video/vidpasta.mp4" type="video/mp4">
+                Ваш браузер не підтримує відео тег.
+              </video>
+              <div class="slide-caption">
+                <h3 class="caption-title">Приготування пасти</h3>
+                <p>Наш шеф-кухар демонструє майстерність</p>
+              </div>
+            </div>
+            
+            <!-- Слайд 8 (відео) -->
+            <div class="slide">
+              <video controls poster="/assets/images/vid2.jpg">
+                <source src="/assets/video/vidsalad.mp4" type="video/mp4">
+                Ваш браузер не підтримує відео тег.
+              </video>
+              <div class="slide-caption">
+                <h3 class="caption-title">Приготування салату</h3>
+                <p>Наш шеф-кухар демонструє майстерність</p>
+              </div>
+            </div>
+            
+            <!-- Слайд 9 (відео) -->
+            <div class="slide">
+              <video controls poster="/assets/images/vid3.jpg">
+                <source src="/assets/video/vidtiram.mp4" type="video/mp4">
+                Ваш браузер не підтримує відео тег.
+              </video>
+              <div class="slide-caption">
+                <h3 class="caption-title">Приготування тірамісу</h3>
+                <p>Наш шеф-кухар демонструє майстерність</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="slider-nav" id="slider-dots">
+            <!-- Точки будуть додані через JavaScript -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3 class="logof">Sapori di Roma</h3>
+            <p>
+              Наше кафе пропонує автентичну італійську кухню, приготовану з
+              любов'ю та найсвіжіших інгредієнтів.
+            </p>
+          </div>
+
+          <div class="footer-column">
+            <h3>Години роботи</h3>
+            <ul>
+              <li>Понеділок - П'ятниця: 9:00 - 23:00</li>
+              <li>Субота - Неділя: 10:00 - 24:00</li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>Контакти</h3>
+            <ul>
+              <li>м. Київ, вул. Хрещатик, 25</li>
+              <li>+380 63 345 6789</li>
+              <li>saporidiroma@gmail.com</li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>Соціальні мережі</h3>
+            <div class="social-links">
+              <a href="https://www.facebook.com/">Facebook</a>
+              <a href="https://www.instagram.com/">Instagram</a>
+              <a href="https://web.telegram.org/k/">Telegram</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="copyright">
+          <p>&copy; 2025 Sapori di Roma. Всі права захищені.</p>
+          <p>Kozak Stanislav</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const track = document.querySelector('.slider-track');
+        const slides = document.querySelectorAll('.slide');
+        const dotsContainer = document.getElementById('slider-dots');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        
+        let currentSlide = 0;
+        const slideCount = slides.length;
+        
+        // Створюємо точки навігації
+        slides.forEach((slide, index) => {
+          const dot = document.createElement('div');
+          dot.classList.add('slider-dot');
+          if (index === 0) dot.classList.add('active');
+          dot.addEventListener('click', () => {
+            goToSlide(index);
+          });
+          dotsContainer.appendChild(dot);
+        });
+        
+        const dots = document.querySelectorAll('.slider-dot');
+        
+        // Функція для переміщення до конкретного слайду
+        function goToSlide(index) {
+          track.style.transform = `translateX(-${index * 100}%)`;
+          currentSlide = index;
+          updateDots();
+        }
+        
+        // Оновлення активних точок
+        function updateDots() {
+          dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentSlide);
+          });
+        }
+        
+        // Автоматичне перемикання слайдів
+        let slideInterval = setInterval(() => {
+          nextSlide();
+        }, 5000);
+        
+        // Зупинка автоматичного перемикання при наведенні
+        const slider = document.querySelector('.slider-container');
+        slider.addEventListener('mouseenter', () => {
+          clearInterval(slideInterval);
+        });
+        
+        slider.addEventListener('mouseleave', () => {
+          slideInterval = setInterval(() => {
+            nextSlide();
+          }, 5000);
+        });
+        
+        // Перехід до наступного слайду
+        function nextSlide() {
+          currentSlide = (currentSlide + 1) % slideCount;
+          goToSlide(currentSlide);
+        }
+        
+        // Перехід до попереднього слайду
+        function prevSlide() {
+          currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+          goToSlide(currentSlide);
+        }
+        
+        // Обробники кнопок
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+        
+        // Свайп для мобільних пристроїв
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        track.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+        }, {passive: true});
+        
+        track.addEventListener('touchend', (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          handleSwipe();
+        }, {passive: true});
+        
+        function handleSwipe() {
+          if (touchEndX < touchStartX - 50) {
+            nextSlide();
+          }
+          if (touchEndX > touchStartX + 50) {
+            prevSlide();
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sapori di Roma - Італійське кафе</title>
+    <link rel="icon" href="/assets/images/icon.ico" type="image/x-icon" />
+    <style>
+      .hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+          url("/assets/images/bg.avif");
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: white;
+        padding-top: 80px;
+      }
+      .hero h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+      }
+      .hero h1::first-letter {
+        text-transform: uppercase;
+      }
+      .hero p {
+        font-size: 20px;
+        margin-bottom: 30px;
+      }
+
+      .btn {
+        display: inline-block;
+        background-color: #d4a373;
+        color: white;
+        padding: 12px 30px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s;
+      }
+
+      .btn:hover {
+        background-color: #c08a5a;
+      }
+
+      .specials {
+        padding: 80px 0;
+        text-align: center;
+      }
+
+      .section-title {
+        font-size: 36px;
+        margin-bottom: 50px;
+        color: #333;
+        position: relative;
+        display: inline-block;
+      }
+
+      .section-title:after {
+        content: "";
+        position: absolute;
+        width: 50%;
+        height: 3px;
+        background-color: #d4a373;
+        bottom: -10px;
+        left: 25%;
+      }
+
+      .specials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+      }
+
+      .special-item {
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+      }
+
+      .special-item:hover {
+        transform: translateY(-10px);
+      }
+
+      .special-img {
+        height: 200px;
+        overflow: hidden;
+      }
+
+      .special-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s;
+      }
+
+      .special-item:hover .special-img img {
+        transform: scale(1.1);
+      }
+
+      .special-content {
+        padding: 20px;
+      }
+
+      .special-content h3 {
+        font-size: 22px;
+        margin-bottom: 10px;
+      }
+
+      .special-content p {
+        margin-bottom: 15px;
+        color: #666;
+      }
+
+      .price {
+        font-weight: bold;
+        color: #d4a373;
+        font-size: 20px;
+      }
+    </style>
+    <link rel="stylesheet" href="/styles/main.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <div class="logo">Sapori di Roma</div>
+          <ul class="nav-links">
+            <li><a href="#" class="active">Головна</a></li>
+            <li><a href="/pages/menu.html">Меню</a></li>
+            <li><a href="/pages/gallery.html">Галерея</a></li>
+            <li><a href="/pages/about.html">Про нас</a></li>
+            <li><a href="/pages/contacts.html">Контакти</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <section class="hero">
+      <div class="hero-content" style="max-width: 800px; margin: 0 auto">
+        <h1>cправжня італійська кухня</h1>
+        <p>Насолоджуйтесь автентичними смаками Італії в серці Києва</p>
+        <a href="/pages/menu.html" class="btn">Переглянути меню</a>
+      </div>
+    </section>
+    <section class="specials">
+      <div class="container">
+        <h2 class="section-title">Наші спеціальні пропозиції</h2>
+        <div class="specials-grid">
+          <div class="special-item">
+            <div class="special-img">
+              <img src="/assets/images/bolo.jpg" alt="Болоньєзе" />
+            </div>
+            <div class="special-content">
+              <h3>Паста болоньєзе</h3>
+              <p>
+                Паста з м'ясним соусом, приготовленим на основі яловичини,
+                помідорів та спецій
+              </p>
+              <div class="price">185 грн</div>
+            </div>
+          </div>
+
+          <div class="special-item">
+            <div class="special-img">
+              <img src="/assets/images/marg.webp" alt="Піца Маргарита" />
+            </div>
+            <div class="special-content">
+              <h3>Піца Маргарита</h3>
+              <p>Тонка піца з томатним соусом, моцарелою та базиліком</p>
+              <div class="price">170 грн</div>
+            </div>
+          </div>
+
+          <div class="special-item">
+            <div class="special-img">
+              <img src="/assets/images/tiramisutort.webp" alt="Тірамісу" />
+            </div>
+            <div class="special-content">
+              <h3>Тірамісу</h3>
+              <p>
+                Традиційний італійський десерт з кави, маскарпоне та савоярді
+              </p>
+              <div class="price">190 грн</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3 class="logof">Sapori di Roma</h3>
+            <p>
+              Наше кафе пропонує автентичну італійську кухню, приготовану з
+              любов'ю та найсвіжіших інгредієнтів.
+            </p>
+          </div>
+
+          <div class="footer-column">
+            <h3>Години роботи</h3>
+            <ul>
+              <li>Понеділок - П'ятниця: 9:00 - 23:00</li>
+              <li>Субота - Неділя: 10:00 - 24:00</li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>Контакти</h3>
+            <ul>
+              <li>м. Київ, вул. Хрещатик, 25</li>
+              <li>+380 63 345 6789</li>
+              <li>saporidiroma@gmail.com</li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>Соціальні мережі</h3>
+            <div class="social-links">
+              <a href="https://www.facebook.com/">Facebook</a>
+              <a href="https://www.instagram.com/">Instagram</a>
+              <a href="https://web.telegram.org/k/">Telegram</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="copyright">
+          <p>&copy; 2025 Sapori di Roma. Всі права захищені.</p>
+          <p>Kozak Stanislav</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
